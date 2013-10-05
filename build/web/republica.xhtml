@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>PointRep - República</title>
+    </h:head>
+    <h:body>
+        <ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                        template="templateDAO.xhtml">
+                <ui:define name="content">             
+                <h:form>
+                    <div class="container-fluid">
+                        <p:panel header="Gerenciar República">
+                            <div class="row-fluid">
+                                <h5></h5>
+                                <div class="span5">
+                                    <p:panel header="Informações da República">
+                                        <h:panelGrid columns="2" cellpadding="5" width="50px">
+                                            <h:outputLabel value="Nome: " />
+                                            <p:inputText id="nome" value="#{beanRepublica.republica.nome}"/>
+                                            <h:outputLabel value="Limite Vagas: " />
+                                            <p:inputText id="limite_vagas" value="#{beanRepublica.republica.limite_vagas}"/>
+                                        </h:panelGrid>  
+                                    </p:panel>
+                                </div>
+                                <div class="span6">
+                                    <p:panel header="Descrição da República">
+                                        <p:inputTextarea  rows="8" cols="600" autoResize="true" value="#{beanRepublica.republica.descricao}" /> 
+                                    </p:panel>
+                                </div>
+                            </div>
+                            <div class="row-fluid">
+                                <h5></h5>
+                                <div class="span5">
+                                    <p:panel header="Localização">
+                                        <h:panelGrid columns="2" cellpadding="3" width="30">
+                                            <h:outputText value="Cidade: " />
+                                            <h:selectOneMenu value="#{beanRepublica.republica.cidade}">  
+                                                <f:selectItem itemLabel="Selecione..." /> 
+                                                <f:selectItems value="#{beanCidade.cidades}" var="cid" itemLabel="#{cid.cidade}"
+                                                               itemValue="#{cid.id}"/>
+                                            </h:selectOneMenu>
+
+                                            <h:outputText value="Endereço: " />
+                                            <p:inputText value="#{beanRepublica.republica.endereco}" />
+
+                                            <h:outputText value="Bairro: " /> 
+                                            <p:inputText value="#{beanRepublica.republica.bairro}" />
+
+                                            <h:outputText value="CEP: " /> 
+                                            <p:inputMask mask="99999-999" value="#{beanRepublica.republica.cep}" />
+
+                                            <h:outputText value="Ponto de Referência: " /> 
+                                            <p:inputTextarea  rows="3" value="#{beanRepublica.republica.ponto_ref}" />
+                                        </h:panelGrid>
+                                    </p:panel>
+                                </div>
+                                <div class="span6">
+                                    <p:panel header="Mapa">
+                                        <h:panelGrid columns="2" bgcolor="#fff">
+                                            <!-- google map -->
+                                            <div class="grid_12"><div id="map_canvas" class="map_container"></div></div>
+                                            <!-- google map end -->       
+                                        </h:panelGrid>
+                                    </p:panel>
+                                </div>
+                            </div>
+                            <div class="row-fluid">
+                                <div class="span11" align="right">
+                                        <h:panelGrid columns="2" style="margin-top:10px">  
+                                            <h:commandButton id="submitButton" title="Atualizando uma República" value="Gravar" action="#{beanRepublica.insert()}" />  
+                                            <h:commandButton value="Cancelar" type="reset" />
+                                        </h:panelGrid>  
+
+                                        <p:dialog header="Content" widgetVar="dlg" showEffect="fade" hideEffect="fade" modal="true">  
+                                            <h:outputText id="display" value="#{editorBean.value}" escape="false" />  
+                                        </p:dialog>  
+                                </div>
+                            </div>
+                        </p:panel>
+                    </div>
+
+                </h:form>
+
+            </ui:define>
+
+        </ui:composition>
+
+    </h:body>
+</html>

@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link href="./resources/css/bootstrap.css" rel="stylesheet" type="text/css" media="screen"/>
+        <link href="./resources/css/setposition.css" rel="stylesheet" type="text/css"/>
+        <link rel="shortcut icon" href="resources/img/icon.ico" />
+        <title>PointRep - Home</title>
+    </h:head>
+    <h:body>
+
+        <div class="navbar navbar-inverse navbar-static-top">
+
+            <div class="navbar-inner">
+
+                <div class="container">
+
+                    <a class="brand" href="/PointRep/faces/home.xhtml"><img src="./resources/img/icon.png" width="30px" height="30px">  PointRep</img></a>
+
+                    <div class="nav-collapse collapse">
+
+                        <ul class="nav nav-pills">
+                            <li><a style="font-size: 16px; margin-top: 8px;" href="/PointRep/faces/vagas.xhtml">Vagas</a></li>
+
+                            <li><a style="font-size: 16px; 
+                                   margin-top: 8px;
+                                   position:absolute;
+                                   right:0px;
+                                   width:300px;" 
+                                   href="/PointRep/faces/contato.xhtml">Contato</a></li>
+                            <li><a style="font-size: 15px; margin-top: 8px; margin-right: 20px; color: #4bb1cf; " href="/PointRep/faces/contato.xhtml">Sair</a></li>
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div> 
+
+        <div class="conteudo">
+
+            <div class="container">
+                <h:form style="margin-top: 20px">  
+
+                    <p:menubar>  
+
+                        <p:menuitem value="Usuário" icon="ui-icon-person" url="/faces/usuario.xhtml" />
+
+                        <p:menuitem value="Estadia" icon="ui-icon-suitcase" url="/faces/estadia.xhtml" />
+
+                        <p:menuitem value="República" icon="ui-icon-home" url="/faces/republica.xhtml" />
+
+                        <p:menuitem value="Itens e Despesas" icon="ui-icon-copy" url="/faces/item.xhtml" />
+
+                        <p:menuitem value="Tarefa" icon="ui-icon-copy" url="/faces/tarefas.xhtml" />
+
+                    </p:menubar>
+
+                </h:form> 
+                <ui:insert name="content">
+
+
+                </ui:insert>
+            </div>
+
+
+        </div>
+
+        <div class="footer"> 
+
+            <div id="bottom">
+                <div class="footer_bottom" id="footer">
+                    <div class="row-fluid">
+                        <h5></h5>
+                        <div class="span3" align="left">
+                            <b>Comunidade</b><br/>
+                            <a href="http://facebook.com" style="color: #4bb1cf">Facebook</a><br/>
+                            <a href="http://twitter.com" style="color: #4bb1cf">Twitter</a>
+                        </div>
+
+                        <div class="row-fluid">
+                            <div class="span6">
+                                <b> Desenvolvedores:</b> 
+                                <div class="row-fluid">
+                                    <div class="span6">
+                                        <a href="http://be.net/eliasdemoraes" target="_blank" style="color: #4bb1cf">Elias Fernandes</a><br/> 
+                                        Fábio Hideo Sano<br/> 
+                                    </div>
+                                    <div class="span6">
+                                        João Antonio Tonet<br/> 
+                                        Romeu Carvalho<br/> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </h:body>
+
+</html>

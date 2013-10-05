@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title></title>
+    </h:head>
+    <h:body>
+
+        <ui:composition template="./template.xhtml">
+
+            <ui:define name="content">
+
+                <div class="row-fluid">
+                    <div class="span11">
+                        <h:form>  
+
+                            <div class="row-fluid">
+                                <h5></h5>
+                                <div class="span11">
+                                    <p:panel header="Pesquisa Específica">
+                                        <h:panelGrid columns="6" cellpadding="9" width="30">
+                                            <h:outputText value="Cidade: " />
+                                            <p:selectOneMenu value="#{beanRepublica.republica.cidade }">  
+                                                <f:selectItem itemLabel="Selecione..." /> 
+                                                <f:selectItems value="#{beanCidade.cidades}" 
+                                                               var="cid"
+                                                               itemLabel="#{cid.cidade}"
+                                                               itemValue="#{cid.id}"
+                                                               />
+                                            </p:selectOneMenu> 
+                                            <h:outputText value="Gênero: " />
+                                            <p:selectOneRadio  style="color: #000" id="options" value="#{beanUsuario.usuario.genero}">  
+                                                <f:selectItem  itemLabel="Masculino" itemValue="m" />  
+                                                <f:selectItem itemLabel="Feminino" itemValue="f" />  
+                                            </p:selectOneRadio>  
+
+                                            <h:outputText value="Faixa de Preço: " />
+                                            <p:inputText value="#{beanEstadia.estadia.valor}" />
+
+                                        </h:panelGrid>
+                                        <p:commandButton value="Buscar" action="#" />
+                                    </p:panel>
+                                </div>
+
+                            </div>
+                            <p:dataTable id="estadias" var="est" value="#{beanEstadia.all}"
+                                         paginator="true" rows="10"  
+                                         paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"  
+                                         rowsPerPageTemplate="5,10,15">  
+                                <f:facet name="header">  
+                                    Estadias Disponíveis
+                                </f:facet>  
+
+                                <p:column>  
+                                    <f:facet name="header">  
+                                        <h:outputText value="Data Entrada" />  
+                                    </f:facet>  
+                                    <h:outputText value="#{est.data_entrada}" />  
+                                </p:column>  
+
+                                <p:column>  
+                                    <f:facet name="header">  
+                                        <h:outputText value="Data Saída" />  
+                                    </f:facet>  
+                                    <h:outputText value="#{est.data_saida}" />  
+                                </p:column>  
+
+                                <p:column>  
+                                    <f:facet name="header">  
+                                        <h:outputText value="Descrição" />  
+                                    </f:facet>  
+                                    <h:outputText value="#{est.desc}" />  
+                                </p:column>  
+
+                                <p:column>  
+                                    <f:facet name="header">  
+                                        <h:outputText value="Valor" />  
+                                    </f:facet>  
+                                    <h:outputText value="#{est.valor}" />  
+                                </p:column>  
+
+                                <p:column>  
+                                    <f:facet name="header">  
+                                        <h:outputText value="Vagas disponiveis" />  
+                                    </f:facet>  
+                                    <h:outputText value="#{est.qtd_vagas}" />  
+                                </p:column>  
+
+                            </p:dataTable>  
+
+                        </h:form>   
+                    </div>
+                </div>
+
+            </ui:define>
+
+        </ui:composition>
+
+    </h:body>
+</html>
+

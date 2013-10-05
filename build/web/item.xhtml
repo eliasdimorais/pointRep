@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Gerenciar Itens da Estadia</title>
+    </h:head>
+    <h:body>
+        
+        <ui:composition template="templateDAO.xhtml">
+            
+            <ui:define name="content">
+                
+                <p:panel header="Gerenciar Item de Estadia" styleClass="panelGerenciarDespesas" >
+                    
+                    <div class="row-fluid">
+                        
+                        <div class="span11">
+                            <p:panel header="Cadastrar Item de Estadia" >
+                                <div class="row-fluid">
+                                    <div class="span6" style="margin-left: 25px" >
+                                        <h:panelGrid columns="2" width="100%" >
+                                            <h:outputText value="Tipo Item:" /> 
+                                            <p:selectOneMenu value="">  
+                                                <f:selectItem itemLabel="Selecione" itemValue="" /> 
+                                            </p:selectOneMenu> 
+
+                                            <h:outputText value="Cadastrar Novo Item:" />  
+                                            <p:commandButton value="Cadastar" 
+                                                             style="margin-bottom: 11px; margin-top: 3px;"    icon="ui-icon-extlink" /> 
+
+                                            <h:outputText value="Usuário: " /> 
+                                            <p:selectOneMenu value="">  
+                                                <f:selectItem itemLabel="Selecione" itemValue="" /> 
+                                            </p:selectOneMenu>  
+
+                                        </h:panelGrid>
+                                    </div>
+                                    <div class="span5">
+                                        <h:panelGrid columns="2" width="100%" >
+                                            <h:outputText value="Descrição:" />
+                                            <h:inputTextarea value="" />
+
+                                        </h:panelGrid>
+                                    </div>
+                                </div>
+                                <div class="row-fluid">
+                                    <div class="span11" align="right">
+                                        <h:form> 
+
+                                            <h:panelGrid columns="2">  
+                                                <p:commandButton id="submitButton" value="Gravar" update="display" icon="ui-icon-disk" />  
+                                                                
+                                                <p:commandButton id="clearButton" type="button" value="Cancelar" icon="ui-icon-close" />  
+                                                                  
+                                            </h:panelGrid>  
+
+                                            <p:dialog header="Content" widgetVar="dlg" showEffect="fade" hideEffect="fade" modal="true">  
+                                                <h:outputText id="display" value="" escape="false" />  
+                                            </p:dialog>  
+
+                                        </h:form>
+                                    </div>
+                                </div>
+                            </p:panel>
+                        </div>
+                    </div>
+                    <!--Criando o pDialog -->
+                    <p:dialog id="modalDialog" showEffect="clip" hideEffect="fold" header="Novo Tipo de Despesa" 
+                              widgetVar="cadNovaDespesa" modal="true" height="200" width="410">  
+                        <center>
+                            <h:panelGrid columns="2" cellpadding="8" width="30">
+
+                                <h:outputText value="Nome: " /> 
+                                <p:inputText value="" />
+
+                                <h:outputText value="Quantidade: " /> 
+                                <p:inputText value="" />
+
+                                <h:outputText value="Descrição: "/>
+                                <p:inputTextarea autoResize="true" maxlength="20" title="Descreva o item" />
+
+                                <p:commandButton  type="button" value="Cancelar" icon="ui-icon-arrowthick-1-w" />
+                                <p:commandButton  type="button" value="Cadastrar" icon="ui-icon-disk" />
+
+                            </h:panelGrid>
+
+                        </center>
+                    </p:dialog>  
+
+
+                    <div class="row-fluid">
+                        <h5></h5>
+                        <div class="span11">
+                            <p:panel header="Todas as Despesas">
+                                <p:dataTable var="despesa" value="" scrollable="true" scrollHeight="150">
+                                    <p:column>  
+                                        <f:facet name="header">  
+                                            <h:outputText value="Despesa" />  
+                                        </f:facet>  
+                                        <h:outputText value="" />  
+                                    </p:column>  
+                                    <p:column>  
+                                        <f:facet name="header">  
+                                            <h:outputText value="Usuário" />  
+                                        </f:facet>  
+                                        <h:outputText value="" />  
+                                    </p:column>  
+                                    <p:column>  
+                                        <f:facet name="header">  
+                                            <h:outputText value="Descrição" />  
+                                        </f:facet>  
+                                        <h:outputText value="" />  
+                                    </p:column> 
+                                    <p:column>  
+                                        <f:facet name="header">  
+                                            <h:outputText value="Valor" />  
+                                        </f:facet>  
+                                        <h:outputText value="" />  
+                                    </p:column>    
+                                </p:dataTable>  
+                            </p:panel>
+                        </div>
+                    </div>
+                    
+                </p:panel>
+                
+            </ui:define>
+            
+        </ui:composition>
+
+    </h:body>
+    
+</html>

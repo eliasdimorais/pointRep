@@ -1,0 +1,40 @@
+.footer {
+    
+    margin: 0px;
+    height: 100px;
+    width: 100%;
+    background-color: #000;
+    color: #999;
+    font-size: 11px
+}
+
+.conteudo {
+    
+    height: 100%;
+    min-height: 700px;
+    border-bottom: 2px solid #999
+}
+
+#formCadastro{
+    
+    width: 380px;
+    float: right;
+    margin-right: 10px;
+    margin-top: 15px;
+}
+
+#formCadastro{
+    
+    width: 380px;
+    float: next;
+    margin-right: 10px;
+    margin-top: 15px;
+}
+
+.bf{
+    width: 130px;
+    float: left;
+    display: inline-block;
+    margin-left: 135px;
+    margin-top: 8px;
+}

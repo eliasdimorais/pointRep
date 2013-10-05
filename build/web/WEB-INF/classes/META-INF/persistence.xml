@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="PointRepPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>pr.entity.Telefone</class>
+    <class>pr.entity.Republica</class>
+    <class>pr.entity.Estadia</class>
+    <class>pr.entity.VagaUser</class>
+    <class>pr.entity.Pais</class>
+    <class>pr.entity.Usuario</class>
+    <class>pr.entity.Questionario</class>
+    <class>pr.entity.Email</class>
+    <class>pr.entity.Sessao</class>
+    <class>pr.entity.UserItem</class>
+    <class>pr.entity.TipoDespesa</class>
+    <class>pr.entity.Item</class>
+    <class>pr.entity.EstadiaItem</class>
+    <class>pr.entity.Vaga</class>
+    <class>pr.entity.Resposta</class>
+    <class>pr.entity.PerguntaResposta</class>
+    <class>pr.entity.Estado</class>
+    <class>pr.entity.TelefoneUser</class>
+    <class>pr.entity.Tarefa</class>
+    <class>pr.entity.Despesa</class>
+    <class>pr.entity.Cidade</class>
+    <class>pr.entity.UserRep</class>
+    <class>pr.entity.Avaliacao</class>
+    <class>pr.entity.Pergunta</class>
+    <class>pr.entity.Republica_1</class>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/pointRep"/>
+      <property name="javax.persistence.jdbc.password" value="postgres"/>
+      <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+      <property name="javax.persistence.jdbc.user" value="postgres"/>
+    </properties>
+  </persistence-unit>
+</persistence>

@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Configuração da conta</title>
+    </h:head>
+    <h:body>
+
+        <ui:composition template="templateDAO.xhtml">
+
+            <ui:define name="content">
+                <h:outputText value="#{beanUsuario.usuario.nome}" id="display" />
+                <h:form>
+                     <p:growl autoUpdate="true"/>  
+                    <div class="row-fluid">
+                        <h5></h5>
+                        <div class="span6">
+                            <p:panel header="Informações do usuário">
+                                <h:panelGrid columns="2" cellpadding="5" width="50px">
+                                    <h:outputText value="Nome: " /> 
+                                    <p:inputText value="#{beanUsuario.usuario.nome}" />
+                                    <h:outputText value="Sobrenome: " />
+                                    <p:inputText value="#{beanUsuario.usuario.sobrenome}" />
+                                    <h:outputText value="Data de Nascimento: " /> 
+                                    <p:inputMask mask="99/99/9999" value="#{beanUsuario.usuario.data_nasc}" />
+                                    <h:outputText value="Apelido: " /> 
+                                    <p:inputText value="#{beanUsuario.usuario.apelido}" />
+
+                                    <h:outputText value="Gênero: "/>
+                                    <p:selectOneRadio id="options" value="#{beanUsuario.usuario.genero}">  
+                                        <f:selectItem itemLabel="Masculino" itemValue="m" />  
+                                        <f:selectItem itemLabel="Feminino" itemValue="f" />  
+                                    </p:selectOneRadio>  
+                                    <h:outputText value="Senha: "/>
+                                    <p:password value="#{beanUsuario.usuario.senha}" inline="true"/>
+                                    <h:outputText/>  
+                                </h:panelGrid>
+                            </p:panel>
+                        </div>
+                        <h5></h5>
+                        <div class="row-fluid">
+                            <div class="span6">
+                                <p:panel header="Social" >
+                                    <h:panelGrid columns="2" cellpadding="3" width="50px">
+                                        <h:outputText value="Skype: " /> 
+                                        <p:inputText value="#{beanUsuario.usuario.skype}" />
+                                        <h:outputText value="Facebook: " /> 
+                                        <p:inputText value="#{beanUsuario.usuario.facebook}" />
+                                        <h:outputText value="Twitter: " />
+                                        <p:inputText value="#{beanUsuario.usuario.twitter}" />
+                                    </h:panelGrid>
+                                </p:panel>
+                                <p:panel header="Contato">
+                                    <h:panelGrid columns="2" cellpadding="3" width="50px"> 
+                                        <h:outputText value="Email: " /> 
+                                        <p:inputText disabled="true" value="#{beanUsuario.email.email}" />
+                                    </h:panelGrid>
+                                </p:panel>
+                                   <p:separator />
+                               
+                                    <p:commandButton value="Atualizar Cadastro" action="#{beanUsuario.update()}" id="atualizado" actionListener="#{beanDefaultCommand.atualizadoSubmit()}"/>  
+                                    <p:commandButton value="Excluir Conta " action="#{(beanUsuario.delete())}" id="removido" actionListener="#{beanDefaultCommand.removidoSubmit()}" />        
+
+                                <p:dialog header="Content" widgetVar="dlg" showEffect="fade" hideEffect="fade" modal="true">  
+                                    <h:outputText id="display" value="#{beanUsuario.growlMsg(null)}" escape="false" />  
+                                </p:dialog>
+                            </div>
+                        </div>
+                    </div>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </h:body>
+</html>
+
